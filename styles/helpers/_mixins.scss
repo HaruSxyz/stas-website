@@ -1,0 +1,80 @@
+// Fluid responsive text sizing using CSS clamp()
+// Calculates font-size based on viewport width between breakpoints
+// @param $max - maximum font size in pixels (default: 48px)
+// @param $min - minimum font size in pixels (default: 16px)
+@mixin fluid-text($max: 48, $min: 16) {
+    // Viewport width breakpoints in pixels
+    $maxViewportWidth: 1920;
+    $minViewportWidth: 390;
+
+    // Convert pixel values to rem units (1rem = 16px)
+    $maxSize: math.div($max, 16);
+    $minSize: math.div($min, 16);
+    $maxWidth: math.div($maxViewportWidth, 16);
+    $minWidth: math.div($minViewportWidth, 16);
+
+    // Calculate slope for linear interpolation
+    $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+    // Calculate y-axis intersection point
+    $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+    // Generate CSS clamp() function
+    font-size: clamp(#{$minSize * 1rem},
+        #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+        #{$maxSize * 1rem});
+}
+
+// Hide element while maintaining layout space
+@mixin hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+// Show element with smooth opacity transition
+@mixin show {
+    opacity: 1;
+    visibility: visible;
+}
+
+// Flexbox centering helper
+// @param $isInline - use inline-flex display when true
+@mixin flex-center($isInline: false) {
+    @if $isInline {
+        display: inline-flex;
+    }
+
+    @else {
+        display: flex;
+    }
+
+    justify-content: center;
+    align-items: center;
+}
+
+// Absolute positioning centering
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+// Create square element
+@mixin square($size) {
+    width: $size;
+    height: $size;
+}
+
+// Visually hide element while keeping it accessible for screen readers
+@mixin visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+}
