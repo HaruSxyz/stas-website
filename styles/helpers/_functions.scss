@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Converts pixel values to rem units
 @function rem($pixel) {
     @if math.is-unitless($pixel) {

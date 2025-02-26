@@ -1,22 +1,22 @@
-/* Global box-model normalization */
+// Global box-model normalization
 *,
 ::before,
 ::after {
     box-sizing: border-box;
 }
 
-/* Reset left padding for lists with class attribute */
+// Reset left padding for lists with class attribute
 :where(ul, ol):where([class]) {
     padding-left: 0;
 }
 
-/* Margin reset for base elements with classes */
+// Margin reset for base elements with classes
 body,
 :where(blockquote, figure):where([class]) {
     margin: 0;
 }
 
-/* Vertical margin reset for headings and text elements with classes */
+// Vertical margin reset for headings and text elements with classes
 :where(h1,
     h2,
     h3,
@@ -30,40 +30,40 @@ body,
     margin-block: 0;
 }
 
-/* Definition list term margin reset */
+// Definition list term margin reset
 :where(dd[class]) {
     margin-left: 0;
 }
 
-/* Fieldset styling normalization */
+// Fieldset styling normalization
 :where(fieldset[class]) {
     margin-left: 0;
     padding: 0;
     border: none;
 }
 
-/* List style reset for unordered lists with classes */
+// List style reset for unordered lists with classes
 :where(ul[class]) {
     list-style: none;
 }
 
-/* Address element style normalization */
+// Address element style normalization
 :where(address[class]) {
     font-style: normal;
 }
 
-/* Paragraph spacing system */
+// Paragraph spacing system
 p {
     --paragraphMarginBottom: 24px;
     margin-block: 0;
 }
 
-/* Automatic bottom margin for non-class paragraphs */
+// Automatic bottom margin for non-class paragraphs
 p:where(:not([class]):not(:last-child)) {
     margin-bottom: var(--paragraphMarginBottom);
 }
 
-/* Media elements responsive handling */
+// Media elements responsive handling
 img,
 video {
     display: block;
@@ -71,7 +71,7 @@ video {
     height: auto;
 }
 
-/* Form elements font inheritance */
+// Form elements font inheritance
 input,
 textarea,
 select,
@@ -79,59 +79,59 @@ button {
     font: inherit;
 }
 
-/* Core document styling */
+// Core document styling
 html {
     height: 100%;
     scrollbar-gutter: stable;
 }
 
-/* Smooth scroll behavior */
+// Smooth scroll behavior
 html,
 :has(:target) {
     scroll-behavior: smooth;
 }
 
-/* Base body styling */
+// Base body styling
 body {
     min-height: 100%;
     line-height: 1.5;
 }
 
-/* Link element display adjustment */
+// Link element display adjustment
 a:where([class]) {
     display: inline-flex;
 }
 
-/* Interactive elements cursor */
+// Interactive elements cursor
 button,
 label {
     cursor: pointer;
 }
 
-/* SVG fill color normalization */
+// SVG fill color normalization 
 :where([fill]:not([fill="none"],
         [fill^="url"])) {
     fill: currentColor;
 }
 
-/* SVG stroke color normalization */
+// SVG stroke color normalization
 :where([stroke]:not([stroke="none"],
         [stroke^="url"])) {
     stroke: currentColor;
 }
 
-/* SVG transition fixes */
+// SVG transition fixes
 svg * {
     transition-property: fill, stroke;
 }
 
-/* Table styling normalization */
+// Table styling normalization
 :where(table) {
     border-collapse: collapse;
     border-color: currentColor;
 }
 
-/* Reduced motion accessibility support */
+// Reduced motion accessibility support
 @media (prefers-reduced-motion: reduce) {
 
     *,
