@@ -17,10 +17,10 @@
     --color-red: #FF5500;
 
     --font-family-base: 'Inter', 'sans-serif';
-    --font-family-accent: 'Rubik', 'sans-serif'; // sans-serif обязательно
+    --font-family-accent: 'Rubik', 'sans-serif'; // sans-serif necessarily
 
-    --container-width: #{rem(1600)}; // 1600 - берется с desktop // #{} обязательно, чтобы выполнить функцию
-    --container-padding-x: #{rem(16)}; // 16 - отступы, берутся с телефона
+    --container-width: #{rem(1600)}; // 1600 - taken from desktop. // #{} is necessarily to execute the function
+    --container-padding-x: #{rem(16)}; // 16 - taken from mobile. padding
 
     --transition-duration: 0.2s;
 

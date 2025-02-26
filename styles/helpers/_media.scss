@@ -53,7 +53,7 @@ $mobile-s: 480.98;
     }
 }
 
-// для устройств у которых есть курсор
+// For devices with a cursor
 @mixin hover($hasActiveEffectOnMobile: true) {
     @media (any-hover: hover) {
         &:hover {

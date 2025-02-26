@@ -1,9 +1,9 @@
 @use 'helpers' as *;
 
 .container {
-    max-width: calc(var(--container-width) + var(--container-padding-x) * 2); // четкая ширина конентного контейнера
-    margin-inline: auto; // центрирование элемента по гор.
-    padding-inline: var(--container-padding-x); // внутренние отступы
+    max-width: calc(var(--container-width) + var(--container-padding-x) * 2); // Exact width of the content container
+    margin-inline: auto; // Horizontal centering of the element
+    padding-inline: var(--container-padding-x); // Inner padding
 }
 
 .visually-hidden {
