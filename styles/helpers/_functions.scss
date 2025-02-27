@@ -3,16 +3,14 @@
 // Converts pixel values to rem units
 @function rem($pixel) {
     @if math.is-unitless($pixel) {
-        @return math.div($pixel, 16)+1rem;
-    }
-
-    @else {
+        @return math.div($pixel, 16) + rem;
+    }   @else {
         @error 'Dont use measurement units with rem() function! Provide unitless numbers only.';
     }
 }
 
 @function fluid($max: 100, $min: 10) {
-    $maxViewportWidth: 1920;
+    $maxViewportWidth: 1600;
     $minViewportWidth: 390;
 
     $maxSize: math.div($max, 16);
@@ -21,7 +19,7 @@
     $minWidth: math.div($minViewportWidth, 16);
 
     $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
-    $yAxisIntersection: -$minWidth * $slope + $minSize;
+    $yAxisIntersection: - $minWidth * $slope + $minSize;
 
     @return clamp(
         #{$minSize * 1rem},

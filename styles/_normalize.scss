@@ -17,7 +17,8 @@ body,
 }
 
 // Vertical margin reset for headings and text elements with classes
-:where(h1,
+:where(
+    h1,
     h2,
     h3,
     h4,
@@ -26,7 +27,8 @@ body,
     p,
     ul,
     ol,
-    dl):where([class]) {
+    dl
+):where([class]) {
     margin-block: 0;
 }
 
@@ -55,6 +57,7 @@ body,
 // Paragraph spacing system
 p {
     --paragraphMarginBottom: 24px;
+
     margin-block: 0;
 }
 
@@ -109,26 +112,12 @@ label {
 }
 
 // SVG fill color normalization 
-:where([fill]:not([fill="none"],
-        [fill^="url"])) {
-    fill: currentColor;
-}
-
-// SVG stroke color normalization
-:where([stroke]:not([stroke="none"],
-        [stroke^="url"])) {
-    stroke: currentColor;
-}
+[fill] { fill: currentColor }
+[stroke] { stroke: currentColor }
 
 // SVG transition fixes
 svg * {
     transition-property: fill, stroke;
-}
-
-// Table styling normalization
-:where(table) {
-    border-collapse: collapse;
-    border-color: currentColor;
 }
 
 // Reduced motion accessibility support

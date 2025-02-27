@@ -16,6 +16,8 @@
 
     --color-red: #FF5500;
 
+    --border: #{rem(1)} solid var(--color-dark-15);
+
     --font-family-base: 'Inter', 'sans-serif';
     --font-family-accent: 'Rubik', 'sans-serif'; // sans-serif necessarily
 
