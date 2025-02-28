@@ -1,16 +1,17 @@
 @use 'sass:math';
 
-// Converts pixel values to rem units
 @function rem($pixel) {
     @if math.is-unitless($pixel) {
         @return math.div($pixel, 16) + rem;
-    }   @else {
-        @error 'Dont use measurement units with rem() function! Provide unitless numbers only.';
+    }
+
+    @else {
+        @error 'Do not use units of measurement when working with the rem() function! Pass only numbers as arguments.';
     }
 }
 
 @function fluid($max: 100, $min: 10) {
-    $maxViewportWidth: 1600;
+    $maxViewportWidth: 1920;
     $minViewportWidth: 390;
 
     $maxSize: math.div($max, 16);
