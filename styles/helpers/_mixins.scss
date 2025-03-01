@@ -61,3 +61,10 @@
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
 }
+
+//gradient
+@mixin fancy-background($angle: 40deg) {
+    background:
+        linear-gradient(var(--color-dark-10), var(--color-dark-10)) padding-box,
+        linear-gradient($angle, var(--color-dark-15) 62%, var(--color-accent) 138%) border-box;
+}
