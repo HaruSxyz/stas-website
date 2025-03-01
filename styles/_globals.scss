@@ -1,5 +1,11 @@
 @use 'helpers' as *;
 
+html {
+    &.is-lock {
+        overflow: hidden; // for working scroll in site page
+    }
+}
+
 body {
     @include fluid-text(18, 14); // default font size
 
