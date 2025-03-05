@@ -1,13 +1,17 @@
 @use '../helpers' as *;
 
 .hero {
-    padding-top: var(--section-padding);
-    padding-bottom: var(--section-padding);
+    padding: rem(50) 0;
 
     &__inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     &__content {
@@ -42,7 +46,12 @@
     }
 
     &__scene-wrapper {
-        height: 100%;
-        width: 100%;
+        height: rem(600);
+        width: rem(600);
+
+        @include tablet {
+            height: rem(500);
+            width: rem(500);
+        }
     }
 }
