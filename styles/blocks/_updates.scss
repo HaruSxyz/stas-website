@@ -1,0 +1,116 @@
+@use '../helpers' as *;
+
+.updates {
+    background-color: var(--color-dark-10);
+    padding: rem(20) 0;
+    overflow: hidden;
+    width: 100%;
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: rem(20);
+    }
+
+    &__line {
+        background-color: var(--color-dark-15);
+        overflow: hidden;
+
+        &-inner {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+
+            animation: scroll-left 60s linear infinite;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+        }
+
+        &-img {
+            @include square(rem(24));
+            margin-right: 2rem;
+        }
+
+        &-text {
+            color: var(--color-accent);
+            font-weight: bold;
+            font-size: rem(30);
+            letter-spacing: 0.1em;
+        }
+    }
+
+    &__preview {
+        overflow: hidden;
+
+        &-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+
+            animation: scroll-right 80s linear infinite;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        &-item {
+            width: rem(320);
+            height: rem(370);
+            background-color: var(--color-dark);
+            border: var(--border);
+            border-radius: rem(8);
+            // overflow: hidden;
+            box-shadow: 0 0 0.3rem 0 var(--color-dark-15);
+
+            @include mobile {
+                min-width: rem(280);
+            }
+        }
+
+        &-img {
+            width: 100%;
+            height: rem(180);
+            object-fit: cover;
+        }
+
+        &-info {
+            color: var(--color-light);
+            padding: rem(15);
+            padding-bottom: 0;
+
+            h3, h4 {
+                margin: 0;
+            }
+
+            p {
+                font-size: 16px;
+                margin-bottom: rem(10);
+                margin-top: rem(10)
+            }
+        }
+    }
+
+    &__button {
+        margin-left: rem(15);
+    }
+}
+
+@keyframes scroll-left {
+    to {
+        transform: translateX(calc(-1rem - var(--scroll-distance-line)));
+    }
+}
+
+@keyframes scroll-right {
+    from {
+        transform: translateX(-var(--scroll-distance-preview)); 
+    }
+
+    to {
+        transform: translateX(0.75rem); 
+    }
+}

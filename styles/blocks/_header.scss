@@ -1,25 +1,8 @@
 @use '../helpers' as *;
 
 .header{
-    position: sticky;
-    top: 0;
-    z-index: 100;
-
-    //shadow under header when scrolling
-    animation-name: scrolling-header;
-    animation-fill-mode: both;
-    animation-timeline: scroll();
-    animation-range: rem(100) rem(1000);
-
-    @keyframes scrolling-header { //shadow under header
-        to {
-            box-shadow: 0 0 0.3rem 0 var(--color-accent);
-        }
-        
-    }
-
     &__promo {
-        padding-block: rem(20);
+        padding-block: rem(12);
         text-align: center;
         border-bottom: var(--border);
         background-color: var(--color-dark);
@@ -30,8 +13,25 @@
     }
 
     &__body {
-        padding-block: rem(24);
+        padding-block: rem(22);
         background-color: var(--color-dark-10);
+
+        position: sticky;
+        top: 0;
+        z-index: 100;
+
+        //shadow under header when scrolling
+        animation-name: scrolling-header__body;
+        animation-fill-mode: both;
+        animation-timeline: scroll();
+        animation-range: rem(100) rem(1000);
+
+        @keyframes scrolling-header__body { //shadow under header
+            to {
+                box-shadow: 0 0 0.3rem 0 var(--color-accent);
+            }
+        
+        }
 
         @include mobile {
             padding-block: rem(20);
