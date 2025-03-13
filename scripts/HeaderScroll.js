@@ -20,10 +20,11 @@ class HeaderScroll {
     onScroll = () => {
         const headerHeight = this.rootelement.offsetHeight;
 
+        clearTimeout(this.scrollTimeout); // Stop the previous timer if the user scrolls down again
+
         if (window.scrollY > headerHeight) {
             this.rootelement.classList.add(this.stateClasses.isScrolled);
             this.miniElement.classList.add(this.stateClasses.isScrolled);
-            clearTimeout(this.scrollTimeout); // Stop the previous timer if the user scrolls down again
         } else {
             if (this.rootelement.classList.contains(this.stateClasses.isExpanded)) {
                 this.rootelement.classList.add(this.stateClasses.closing);
@@ -36,11 +37,8 @@ class HeaderScroll {
             }
 
             this.miniElement.classList.remove(this.stateClasses.isScrolled);
+            this.rootelement.classList.remove(this.stateClasses.isScrolled);
 
-            // Delay before returning header
-            setTimeout(() => {
-                this.rootelement.classList.remove(this.stateClasses.isScrolled);
-            }, 300);
         }
     };
 
