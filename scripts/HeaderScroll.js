@@ -16,16 +16,34 @@ class HeaderScroll {
         this.bindEvents()
     }
 
+
     onScroll = () => {
-        const headerHeight = this.rootelement.offsetHeight
-        if (window.scrollY > headerHeight / 2) {
-            this.rootelement.classList.add(this.stateClasses.isScrolled)
-            this.miniElement.classList.add(this.stateClasses.isScrolled)
+        const headerHeight = this.rootelement.offsetHeight;
+
+        if (window.scrollY > headerHeight) {
+            this.rootelement.classList.add(this.stateClasses.isScrolled);
+            this.miniElement.classList.add(this.stateClasses.isScrolled);
+            clearTimeout(this.scrollTimeout); // Stop the previous timer if the user scrolls down again
         } else {
-            this.rootelement.classList.remove(this.stateClasses.isScrolled, this.stateClasses.isExpanded)
-            this.miniElement.classList.remove(this.stateClasses.isScrolled, this.stateClasses.isExpanded)
+            if (this.rootelement.classList.contains(this.stateClasses.isExpanded)) {
+                this.rootelement.classList.add(this.stateClasses.closing);
+                this.miniElement.classList.add(this.stateClasses.closing);
+
+                setTimeout(() => {
+                    this.rootelement.classList.remove(this.stateClasses.isExpanded, this.stateClasses.closing);
+                    this.miniElement.classList.remove(this.stateClasses.isExpanded, this.stateClasses.closing);
+                }, 300);
+            }
+
+            this.miniElement.classList.remove(this.stateClasses.isScrolled);
+
+            // Delay before returning header
+            setTimeout(() => {
+                this.rootelement.classList.remove(this.stateClasses.isScrolled);
+            }, 300);
         }
-    }
+    };
+
 
     onMiniClick = () => {
         if (this.rootelement.classList.contains(this.stateClasses.isExpanded)) {
@@ -42,6 +60,7 @@ class HeaderScroll {
         }
     }
 
+    
     bindEvents() {
         window.addEventListener('scroll', this.onScroll)
         this.miniElement.addEventListener('click', this.onMiniClick)
