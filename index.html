@@ -14,14 +14,6 @@
 
 <body>
     <header class="header" data-js-header>
-        <!-- header link -->
-        <!-- <div class="header__promo">
-            <div class="header__promo-inner container">
-                <a class="header__promo-link" href="/">
-                    <span class="icon icon--yellow-arrow">Some link</span>
-                </a>
-            </div>
-        </div> -->
         <!-- header menu -->
         <div class="header__body" data-js-scroll>
             <div class="header__body-inner container">
@@ -34,13 +26,13 @@
                     <nav class="header__menu">
                         <ul class="header__menu-list">
                             <li class="header__menu-item">
-                                <a class="header__menu-link is-active" href="/">Home</a>
+                                <a class="header__menu-link is-active" href="#home" data-js-nav-link>Home</a>
                             </li>
                             <li class="header__menu-item">
-                                <a class="header__menu-link" href="/">Updates</a>
+                                <a class="header__menu-link" href="#updates" data-js-nav-link>Updates</a>
                             </li>
                             <li class="header__menu-item">
-                                <a class="header__menu-link" href="/">Projects</a>
+                                <a class="header__menu-link" href="#projects" data-js-nav-link>Projects</a>
                             </li>
                         </ul>
                     </nav>
@@ -63,7 +55,7 @@
     <main class="content">
         <div class="content__sections">
             <!-- first section -->
-            <section class="hero" aria-labelledby="hero__title">
+            <section class="hero" id="home" aria-labelledby="hero__title" data-js-section>
                 <div class="hero__inner container">
                     <div class="hero__content">
                         <div class="hero__body">
@@ -80,7 +72,7 @@
                 </div>
             </section>
             <!-- second section -->
-            <section class="updates">
+            <section class="updates" id="updates" data-js-section>
                 <div class="updates__inner">
                     <div class="updates__body">
 
@@ -289,7 +281,7 @@
                 </div>
             </section>
             <!-- thrid section -->
-            <section class="projects">
+            <section class="projects" id="projects" data-js-section>
                 <div class="projects__inner container">
                     <div class="projects__title">
                         <h2>My Projects</h2>

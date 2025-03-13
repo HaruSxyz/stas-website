@@ -89,6 +89,7 @@
         &-link {
             padding: rem(14) rem(24);
             color: var(--color-gray-50);
+            border-radius: rem(10);
 
             @include laptop {
                 padding: rem(10) rem(18);

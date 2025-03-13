@@ -522,6 +522,7 @@ button[aria-label]::before {
 .header__menu-link {
   padding: 0.875rem 1.5rem;
   color: var(--color-gray-50);
+  border-radius: 0.625rem;
 }
 @media (width <= 90.06125rem) {
   .header__menu-link {
@@ -573,6 +574,7 @@ button[aria-label]::before {
 
 .footer {
   color: var(--color-dark-40);
+  padding-top: 3.125rem;
 }
 .footer__contacts {
   padding-block: clamp(0.9375rem, 0.8367768595rem + 0.4132231405vw, 1.25rem);

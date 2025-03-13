@@ -19,10 +19,7 @@ class HeaderScroll {
 
     onScroll = () => {
         const headerHeight = this.rootelement.offsetHeight;
-
-        clearTimeout(this.scrollTimeout); // Stop the previous timer if the user scrolls down again
-
-        if (window.scrollY > headerHeight) {
+        if (window.scrollY > headerHeight / 2) {
             this.rootelement.classList.add(this.stateClasses.isScrolled);
             this.miniElement.classList.add(this.stateClasses.isScrolled);
         } else {
