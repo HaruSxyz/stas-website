@@ -47,7 +47,7 @@
     }
 
     &__preview {
-        // overflow: hidden;
+        overflow: hidden;
 
         &-inner {
             display: inline-flex;
@@ -163,6 +163,6 @@
     }
 
     to {
-        transform: translateX(0.75rem); 
+        transform: translateX(0.75rem); // half size of gap
     }
 }
