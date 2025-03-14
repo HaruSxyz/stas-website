@@ -14,6 +14,7 @@ class ActiveNavigation {
         this.bindEvents();
     }
 
+
     updateActiveLink = () => {
         const scrollPosition = window.scrollY; // Get current scroll position
         const offset = 100; // Add small offset to trigger active state a bit earlier
@@ -52,6 +53,7 @@ class ActiveNavigation {
             }
         }
     };
+
 
     bindEvents() {
         window.addEventListener('scroll', this.updateActiveLink);

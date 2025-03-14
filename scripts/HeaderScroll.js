@@ -11,6 +11,9 @@ class HeaderScroll {
     }
 
     constructor() {
+        this.mediaQuery = window.matchMedia('(max-width: 767.98px)');
+        if (this.mediaQuery.matches) return; // Don't run on mobile
+
         this.rootelement = document.querySelector(this.selectors.root)
         this.miniElement = document.querySelector(this.selectors.mini)
         this.bindEvents()
@@ -18,6 +21,8 @@ class HeaderScroll {
 
 
     onScroll = () => {
+        if (this.mediaQuery.matches) return;
+
         const headerHeight = this.rootelement.offsetHeight;
         if (window.scrollY > headerHeight / 2) {
             this.rootelement.classList.add(this.stateClasses.isScrolled);
@@ -41,6 +46,8 @@ class HeaderScroll {
 
 
     onMiniClick = () => {
+        if (this.mediaQuery.matches) return;
+
         if (this.rootelement.classList.contains(this.stateClasses.isExpanded)) {
             this.rootelement.classList.add(this.stateClasses.closing)
             this.miniElement.classList.add(this.stateClasses.closing)

@@ -445,6 +445,8 @@ button[aria-label]::before {
   top: 0;
   left: 0;
   width: 100%;
+  border-bottom-left-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
   z-index: 100;
   padding-block: 1rem;
   background-color: var(--color-dark-10);
@@ -452,7 +454,13 @@ button[aria-label]::before {
 }
 @media (width <= 47.99875rem) {
   .header__body {
-    padding-block: 1.125rem;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92.5%;
+    border-bottom-left-radius: 0.625rem;
+    border-bottom-right-radius: 0.625rem;
   }
 }
 .header__body-inner {
@@ -483,7 +491,12 @@ button[aria-label]::before {
 @media (width <= 47.99875rem) {
   .header__overlay {
     position: fixed;
-    inset: 0;
+    top: 6.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 21.875rem;
+    border-radius: 0.625rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -495,7 +508,7 @@ button[aria-label]::before {
   .header__overlay:not(.is-active) {
     opacity: 0;
     visibility: hidden;
-    translate: 100%;
+    transform: translate(-50%, -100%);
   }
 }
 @media (width <= 47.99875rem) {
@@ -536,7 +549,6 @@ button[aria-label]::before {
   background: linear-gradient(var(--color-dark-10), var(--color-dark-10)) padding-box, linear-gradient(40deg, var(--color-dark-15) 62%, var(--color-accent) 138%) border-box;
   border: 0.0625rem solid transparent;
   border-radius: 0.625rem;
-  pointer-events: none;
 }
 @media (width <= 47.99875rem) {
   .header__contact-us-link {
