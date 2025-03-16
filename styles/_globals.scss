@@ -3,7 +3,7 @@
 html {
     &.is-lock {
         overflow: hidden; // for working scroll in site page
-    }
+    }    
 }
 
 body {
@@ -17,7 +17,7 @@ body {
     color: var(--color-gray-50);
     background-color: var(--color-dark);
 
-    // padding-top: rem(90);
+    transition: background-color 2s ease, color 1.5s ease;
 }
 
 main {
@@ -31,6 +31,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
     color: var(--color-light);
+    transition: background-color 2s ease, color 1.5s ease, border 1.5s ease;
 }
 
 h1, .h1,

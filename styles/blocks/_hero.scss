@@ -37,6 +37,7 @@
     &__body {
         margin-bottom: rem(20);
         min-height: 5.2em;
+        transition: color 1.5s ease;
 
         @include mobile {
             min-height: 5.6em;
@@ -44,6 +45,6 @@
     }
 
     &__subtitle {
-        color: var(--color-grey-60);
+        color: var(--color-gray-60);
     }
 }

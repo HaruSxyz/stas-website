@@ -4,6 +4,7 @@
     --color-light: #FFFFFF;
 
     --color-dark-max: black;
+    --color-dark-only: #141414;
     --color-dark: #141414;
     --color-dark-10: #1A1A1A;
     --color-dark-15: #262626;
@@ -35,5 +36,25 @@
 
     @include laptop {
         --container-width: #{rem(1280)};
-    }
+    }    
+}
+
+:root.theme-is-light{
+    --color-light:#000000;
+    --color-dark-max:#FFFFFF;
+    --color-dark-only: #141414;
+    --color-dark:#EBEBEB;
+    --color-dark-10:#E0E0E0;
+    --color-dark-15:#D1D1D1;
+    --color-dark-20:#CCCCCC;
+    --color-dark-20-trans:rgba(204, 204, 204, 0.5);
+    --color-dark-40:#999999;
+    --color-gray-50:#81817E;
+    --color-gray-60:#676765;
+
+    --color-accent: #FFD11A;
+
+    --color-red: #FF5500;
+
+    --border: #{rem(1)} solid var(--color-dark-20);
 }

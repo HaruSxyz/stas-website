@@ -14,7 +14,9 @@
             height: rem(650);
             width: 100%;
             z-index: 1;
-            background-color: blue;
+
+            // background-color: blue;
+            background-color: transparent;
         }
 
         &-horizont {
@@ -23,16 +25,17 @@
             height: rem(260);
             transform: translateY(rem(-260));
             z-index: 3;
-            background-color: red;
 
-            // opacity: 0;
+            // background-color: red;
+            background-color: transparent
         }
 
         &-orbit {
             @include square(rem(2500));
 
             position: absolute;
-            left: fluid(-275, -1400); //-275
+            left: fluid(-410, -1025); //-275, -1175
+            right: rem(0);
             top: rem(40); //40
             z-index: 2;
             border-radius: 50%;
@@ -40,7 +43,10 @@
             transform: rotate(0deg);
             transition: transform 2s ease-in-out;
 
-            background-color: green;
+            // background-color: green;
+            background-color: transparent;
+
+            @include responsive-offset(1600px, 1000, 20px, -400, 10)
         }
 
         &-item {
@@ -85,11 +91,12 @@
 
             position: absolute;
             border-radius: 50%;
-            transform: translate(fluid(900, -225), rem(-610));
+            transform: translate(fluid(765, 150), rem(-610));
             z-index: 10;
+            border: none;
+            background-color: transparent;
 
-            background-color: violet;
-            opacity: 0.5;
+            @include responsive-offset(1600px, 1000, 20px, 10, 10)
         }
     }
 }

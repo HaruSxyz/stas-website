@@ -10,6 +10,7 @@
     background-color: var(--color-dark);
     border: var(--border);
     border-radius: rem(12);
+    transition: background-color 2s ease, color 1.5s ease, border 1.5s ease;
 
     @include laptop {
         padding: rem(14) rem(20);
@@ -19,13 +20,13 @@
 
     @include hover {
         color: var(--color-accent);
-        background-color: var(--color-dark-10);
+        background-color: var(--color-dark);
         border-color: var(--color-accent);
     }
 
     &--accent {
         font-weight: 500;
-        color: var(--color-dark);
+        color: var(--color-dark-only);
         background-color: var(--color-accent);
         border-color: var(--color-accent);
         border-radius: rem(8);
