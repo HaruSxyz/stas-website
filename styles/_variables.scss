@@ -26,7 +26,9 @@
     --container-width: #{rem(1600)}; // 1600 - taken from desktop. // #{} is necessarily to execute the function
     --container-padding-x: #{rem(16)}; // 16 - taken from mobile. padding
 
-    --section-padding: #{rem(50)};
+    // change values ​​equally
+    --section-padding: #{rem(50) 0};
+    --section-padding-top: #{rem(50)};
 
     --transition-duration: 0.2s;
     --transition-duration-slow: 0.6s;

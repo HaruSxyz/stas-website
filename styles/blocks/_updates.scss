@@ -1,7 +1,7 @@
 @use '../helpers' as *;
 
 .updates {
-    padding: rem(50) 0;
+    padding: var(--section-padding);
 
     &__inner {
         background-color: var(--color-dark-10);

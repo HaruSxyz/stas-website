@@ -173,7 +173,8 @@ svg * {
   --font-family-accent: "Rubik", "sans-serif";
   --container-width: 100rem;
   --container-padding-x: 1rem;
-  --section-padding: 3.125rem;
+  --section-padding: 3.125rem 0;
+  --section-padding-top: 3.125rem;
   --transition-duration: 0.2s;
   --transition-duration-slow: 0.6s;
 }
@@ -511,6 +512,11 @@ button[aria-label]::before {
     transform: translate(-50%, -100%);
   }
 }
+.header__menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 @media (width <= 47.99875rem) {
   .header__menu {
     overflow-y: auto;
@@ -523,7 +529,7 @@ button[aria-label]::before {
 }
 @media (width <= 90.06125rem) {
   .header__menu-list {
-    column-gap: 0.375rem;
+    column-gap: 0.5rem;
   }
 }
 @media (width <= 47.99875rem) {
@@ -553,7 +559,7 @@ button[aria-label]::before {
 @media (width <= 47.99875rem) {
   .header__contact-us-link {
     width: 100%;
-    max-width: 18.75rem;
+    max-width: 6.25rem;
     align-self: center;
   }
 }
@@ -593,7 +599,7 @@ button[aria-label]::before {
 
 .footer {
   color: var(--color-dark-40);
-  padding-top: 3.125rem;
+  padding-top: var(--section-padding-top);
 }
 .footer__contacts {
   padding-block: clamp(0.9375rem, 0.8367768595rem + 0.4132231405vw, 1.25rem);
@@ -646,9 +652,10 @@ button[aria-label]::before {
 }
 
 .hero {
-  padding: 3.125rem 0;
+  padding: var(--section-padding);
 }
 .hero__inner {
+  height: 37.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -661,7 +668,8 @@ button[aria-label]::before {
 }
 .hero__content {
   width: 100%;
-  margin-right: max(40px, 10%);
+  margin-right: 2.5rem;
+  z-index: 4;
 }
 @media (width > 63.99875rem) {
   .hero__content {
@@ -691,19 +699,9 @@ button[aria-label]::before {
 .hero__subtitle {
   color: var(--color-grey-60);
 }
-.hero__scene-wrapper {
-  height: 37.5rem;
-  width: 37.5rem;
-}
-@media (width <= 63.99875rem) {
-  .hero__scene-wrapper {
-    height: 31.25rem;
-    width: 31.25rem;
-  }
-}
 
 .updates {
-  padding: 3.125rem 0;
+  padding: var(--section-padding);
 }
 .updates__inner {
   background-color: var(--color-dark-10);
@@ -842,7 +840,7 @@ button[aria-label]::before {
   }
 }
 .projects {
-  padding: 3.125rem 0;
+  padding: var(--section-padding);
 }
 .projects__title {
   text-align: center;
@@ -955,6 +953,82 @@ button[aria-label]::before {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hero__scene-wrapper {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  transform: translateY(-37.5rem);
+}
+.hero__scene-inner {
+  overflow: hidden;
+  height: 40.625rem;
+  width: 100%;
+  z-index: 1;
+  background-color: blue;
+}
+.hero__scene-horizont {
+  position: absolute;
+  width: 100%;
+  height: 16.25rem;
+  transform: translateY(-16.25rem);
+  z-index: 3;
+  background-color: red;
+}
+.hero__scene-orbit {
+  width: 156.25rem;
+  height: 156.25rem;
+  position: absolute;
+  left: clamp(-87.5rem, -110.1627066116rem + 92.9752066116vw, -17.1875rem);
+  top: 2.5rem;
+  z-index: 2;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: transform 2s ease-in-out;
+  background-color: green;
+}
+.hero__scene-item {
+  position: absolute;
+  transform: translate(73.4375rem, 0);
+}
+.hero__scene-sun {
+  width: 9.375rem;
+  height: 9.375rem;
+  transform: translate(-73.4375rem, 73.4375rem);
+  border-radius: 50%;
+  background-color: orange;
+}
+.hero__scene-moon {
+  width: 9.375rem;
+  height: 9.375rem;
+  transform: translate(0, 0);
+  border-radius: 50%;
+  background-color: white;
+}
+.hero__scene-sun2 {
+  width: 9.375rem;
+  height: 9.375rem;
+  transform: translate(73.4375rem, 64.0625rem);
+  border-radius: 50%;
+  background-color: orange;
+}
+.hero__scene-moon2 {
+  width: 9.375rem;
+  height: 9.375rem;
+  transform: translate(0, 137.5rem);
+  border-radius: 50%;
+  background-color: white;
+}
+.hero__scene-button {
+  width: 9.375rem;
+  height: 9.375rem;
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(clamp(-14.0625rem, -36.7252066116rem + 92.9752066116vw, 56.25rem), -38.125rem);
+  z-index: 10;
+  background-color: violet;
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=main.css.map */

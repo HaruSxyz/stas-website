@@ -1,9 +1,10 @@
 @use '../helpers' as *;
 
 .hero {
-    padding: rem(50) 0;
+    padding: var(--section-padding);
 
     &__inner {
+        height: rem(600);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -16,7 +17,8 @@
 
     &__content {
         width: 100%;
-        margin-right: max(40px, 10%);
+        margin-right: rem(40);
+        z-index: 4;
 
         @include tablet-above {
             flex: 0 0 40%
@@ -43,15 +45,5 @@
 
     &__subtitle {
         color: var(--color-grey-60);
-    }
-
-    &__scene-wrapper {
-        height: rem(600);
-        width: rem(600);
-
-        @include tablet {
-            height: rem(500);
-            width: rem(500);
-        }
     }
 }

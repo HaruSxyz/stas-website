@@ -2,7 +2,7 @@
 
 .footer {
     color: var(--color-dark-40);
-    padding-top: rem(50);
+    padding-top: var(--section-padding-top);
 
     &__contacts {
         padding-block: fluid(20, 15);

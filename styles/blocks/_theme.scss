@@ -1,0 +1,95 @@
+@use '../helpers' as *;
+
+.hero {
+    &__scene {
+        &-wrapper {
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            transform: translateY(rem(-600));
+        }
+
+        &-inner {
+            overflow: hidden;
+            height: rem(650);
+            width: 100%;
+            z-index: 1;
+            background-color: blue;
+        }
+
+        &-horizont {
+            position: absolute;
+            width: 100%;
+            height: rem(260);
+            transform: translateY(rem(-260));
+            z-index: 3;
+            background-color: red;
+
+            // opacity: 0;
+        }
+
+        &-orbit {
+            @include square(rem(2500));
+
+            position: absolute;
+            left: fluid(-275, -1400); //-275
+            top: rem(40); //40
+            z-index: 2;
+            border-radius: 50%;
+
+            transform: rotate(0deg);
+            transition: transform 2s ease-in-out;
+
+            background-color: green;
+        }
+
+        &-item {
+            position: absolute;
+            transform: translate(rem(1175), 0);
+        }
+
+        &-sun {
+            @include square(rem(150));
+
+            transform: translate(rem(-1175), rem(1175));
+            border-radius: 50%;
+            background-color: orange;
+        }
+
+        &-moon {
+            @include square(rem(150));
+
+            transform: translate(0, 0);
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        &-sun2 {
+            @include square(rem(150));
+
+            transform: translate(rem(1175), rem(1025));
+            border-radius: 50%;
+            background-color: orange;
+        }
+
+        &-moon2 {
+            @include square(rem(150));
+
+            transform: translate(0, rem(2200));
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        &-button {
+            @include square(rem(150));
+
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(fluid(900, -225), rem(-610));
+            z-index: 10;
+
+            background-color: violet;
+            opacity: 0.5;
+        }
+    }
+}
