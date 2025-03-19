@@ -14,76 +14,73 @@
             height: rem(650);
             width: 100%;
             z-index: 1;
-
-            // background-color: blue;
-            background-color: transparent;
         }
 
         &-horizont {
             position: absolute;
             width: 100%;
-            height: rem(260);
+            height: rem(80);
+            transform: translateY(rem(-80));
+            z-index: 2;
+            background-color: var(--color-dark);
+            transition: background-color 2s ease;
+
+            @include mobile {
+                display: none;
+            }
+        }
+
+        &-mountain {
+            position: absolute;
+            left: 20%;
+            width: 80%;
+            height: rem(210);
             transform: translateY(rem(-260));
             z-index: 3;
 
-            // background-color: red;
-            background-color: transparent
+            @include laptop-above {
+                left: 50%;
+                width: 50%;
+            }
+
+            @include mobile {
+                width: 100%;
+                transform: translateY(rem(-210));
+                left: 0;
+            }
         }
 
-        &-orbit {
-            @include square(rem(2500));
-
+        &-clouds {
             position: absolute;
-            left: fluid(-410, -1025); //-275, -1175
-            right: rem(0);
-            top: rem(40); //40
-            z-index: 2;
-            border-radius: 50%;
+            transform: translate(fluid(765, 150), rem(-610));
+            z-index: 10;
+        
+            @include responsive-offset(1600px, 1000, 20px, 10, 10);
 
-            transform: rotate(0deg);
-            transition: transform 2s ease-in-out;
+            &-cloud1 {
+                transform: translate(rem(130), rem(63));
+            }
 
-            // background-color: green;
-            background-color: transparent;
+            &-cloud2 {
+                transform: translate(rem(-130), rem(-105));
+                rotate: -10deg;
+            }
 
-            @include responsive-offset(1600px, 1000, 20px, -400, 10)
-        }
+            &-cloud3 {
+                transform: translate(rem(25), rem(-180));
+            }
 
-        &-item {
-            position: absolute;
-            transform: translate(rem(1175), 0);
-        }
+            &-cloud4 {
+                transform: translate(rem(-180), rem(-165));
+            }
 
-        &-sun {
-            @include square(rem(150));
+            &-cloud5 {
+                transform: translate(rem(40), rem(-250));
+            }
 
-            transform: translate(rem(-1175), rem(1175));
-            border-radius: 50%;
-            background-color: orange;
-        }
-
-        &-moon {
-            @include square(rem(150));
-
-            transform: translate(0, 0);
-            border-radius: 50%;
-            background-color: white;
-        }
-
-        &-sun2 {
-            @include square(rem(150));
-
-            transform: translate(rem(1175), rem(1025));
-            border-radius: 50%;
-            background-color: orange;
-        }
-
-        &-moon2 {
-            @include square(rem(150));
-
-            transform: translate(0, rem(2200));
-            border-radius: 50%;
-            background-color: white;
+            @include mobile {
+                transform: translate(rem(150), rem(-400));
+            }
         }
 
         &-button {
@@ -93,10 +90,99 @@
             border-radius: 50%;
             transform: translate(fluid(765, 150), rem(-610));
             z-index: 10;
-            border: none;
             background-color: transparent;
+            border: none;
 
-            @include responsive-offset(1600px, 1000, 20px, 10, 10)
+            @include responsive-offset(1600px, 1000, 20px, 10, 10);
+
+            @include mobile {
+                transform: translate(rem(150), rem(-400));
+            }
+        }
+
+        &-orbit {
+            @include square(rem(2500));
+
+            position: absolute;
+            left: fluid(-410, -1025);
+            right: rem(0);
+            top: rem(40);
+            z-index: 2;
+            border-radius: 50%;
+
+            transform: rotate(0deg);
+            transition: transform 2s ease-in-out;
+
+            @include responsive-offset(1600px, 1000, 20px, -400, 10);
+
+            @include mobile {
+                top: rem(250);
+                left: rem(-1025);
+            }
+        }
+
+        &-item {
+            position: absolute;
+            transform: translate(rem(1175), 0);
+        }
+
+        &-sun-bg {
+            @include square(rem(250));
+
+            transform: translate(rem(-1224), rem(1124));
+            border-radius: 50%;
+        }
+
+        &-sun {
+            @include square(rem(50));
+
+            transform: translate(rem(-1125), rem(975));
+            border-radius: 50%;
+        }
+
+        &-moon-bg {
+            @include square(rem(250));
+
+            transform: translate(rem(-50), rem(-51));
+            border-radius: 50%;
+        }
+
+        &-moon {
+            @include square(rem(50));
+
+            transform: translate(rem(50), rem(-200));
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        &-sun2-bg {
+            @include square(rem(250));
+
+            transform: translate(rem(1125), rem(824));
+            border-radius: 50%;
+        }
+
+        &-sun2 {
+            @include square(rem(50));
+
+            transform: translate(rem(1225), rem(675));
+            border-radius: 50%;
+        }
+
+        &-moon2-bg {
+            @include square(rem(250));
+
+            transform: translate(rem(50), rem(-2001));
+            rotate: 180deg;
+            border-radius: 50%;
+        }
+
+        &-moon2 {
+            @include square(rem(50));
+
+            transform: translate(rem(-50), rem(-1850));
+            rotate: 180deg;
+            border-radius: 50%;
         }
     }
 }
