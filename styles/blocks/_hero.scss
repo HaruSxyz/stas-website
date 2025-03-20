@@ -2,6 +2,7 @@
 
 .hero {
     padding: var(--section-padding);
+    max-height: rem(700);
 
     &__inner {
         height: rem(600);

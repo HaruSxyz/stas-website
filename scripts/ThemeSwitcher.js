@@ -13,33 +13,94 @@ class ThemeSwitcher {
         this.orbit = document.querySelector(this.selectors.orbit);
         this.button = document.querySelector(this.selectors.button);
 
-        // Проверяем сохранённое состояние темы
+        // Checking the saved state of the theme
         const storedTheme = localStorage.getItem('themeIsLight') === 'true';
         if (storedTheme) {
-            document.documentElement.classList.add('theme-is-light');
-            // Устанавливаем угол 90° без анимации:
+            document.documentElement.classList.add('theme-is-light', 'no-transition');
+
+            // Removing animations in light theme
             this.state.angle = 90;
             if (this.orbit) {
-                // Отключаем анимацию временно:
                 this.orbit.style.transition = 'none';
                 this.orbit.style.transform = `rotate(${this.state.angle}deg)`;
-                // Форсируем перерасчёт стилей:
                 void this.orbit.offsetWidth;
-                // Возвращаем стандартное значение transition (если оно задано в CSS)
                 this.orbit.style.transition = '';
             }
+
+            setTimeout(() => {
+                document.documentElement.classList.remove('no-transition');
+            }, 100);
         }
+
+        this.updateImageSources(true);
+
         if (this.orbit && this.button) {
             this.bindEvents();
         }
     }
+
+
+    updateImageSources = (disableAnimation = false) => {
+        const isLight = document.documentElement.classList.contains('theme-is-light');
+
+        document.querySelectorAll('.hero__scene-clouds img').forEach(img => {
+            let src = img.getAttribute('src');
+            const newSrc = isLight
+                ? src.replace(/(\.\w{3,4})$/, '_light$1')
+                : src.replace('_light', '');
+
+            if (src !== newSrc) {
+                if (disableAnimation) {
+                    img.setAttribute('src', newSrc);
+                } else {
+                    setTimeout(() => {
+                        img.classList.add('fade-img');
+
+                        setTimeout(() => {
+                            img.setAttribute('src', newSrc);
+
+                            setTimeout(() => {
+                                img.classList.remove('fade-img');
+                            }, 100); // Image changing
+                        }, 1400);  // Fade in delay
+                    }, 0); // Fade out delay
+                }
+            }
+        });
+
+        document.querySelectorAll('.hero__scene-mountain').forEach(img => {
+            let src = img.getAttribute('src');
+            const newSrc = isLight
+                ? src.replace(/(\.\w{3,4})$/, '_light$1')
+                : src.replace('_light', '');
+
+            if (src !== newSrc) {
+                if (disableAnimation) {
+                    img.setAttribute('src', newSrc);
+                } else {
+                    setTimeout(() => {
+                        img.classList.add('fade-img');
+
+                        setTimeout(() => {
+                            img.setAttribute('src', newSrc);
+
+                            setTimeout(() => {
+                                img.classList.remove('fade-img');
+                            }, 100); // Image changing
+                        }, 1000);  // Fade in delay
+                    }, 900); // Fade out delay
+                }
+            }
+        });
+    };
+
 
     rotateOrbit = () => {
         if (this.state.isAnimating) return;
         this.state.isAnimating = true;
         this.button.disabled = true;
 
-        // Переключаем тему и сохраняем состояние
+        // Switch theme and save state
         if (document.documentElement.classList.contains('theme-is-light')) {
             document.documentElement.classList.remove('theme-is-light');
             localStorage.setItem('themeIsLight', 'false');
@@ -48,7 +109,9 @@ class ThemeSwitcher {
             localStorage.setItem('themeIsLight', 'true');
         }
 
-        // Накопительное вращение: добавляем 90° к текущему углу
+        this.updateImageSources();
+
+        // Add 90° to the current angle for the orbit
         this.state.angle += 90;
         this.orbit.style.transform = `rotate(${this.state.angle}deg)`;
 
@@ -57,6 +120,7 @@ class ThemeSwitcher {
             this.button.disabled = false;
         }, 2200);
     };
+
 
     bindEvents() {
         this.button.addEventListener("click", this.rotateOrbit);

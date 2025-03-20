@@ -6,6 +6,12 @@
     padding-inline: var(--container-padding-x); // Inner padding
 }
 
+.container-big {
+    max-width: calc(var(--container-width-big) + var(--container-padding-x) * 2); // Exact width of the content container
+    margin-inline: auto; // Horizontal centering of the element
+    padding-inline: var(--container-padding-x); // Inner padding
+}
+
 .visually-hidden {
     @include visually-hidden
 }

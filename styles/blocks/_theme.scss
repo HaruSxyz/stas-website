@@ -4,7 +4,7 @@
     &__scene {
         &-wrapper {
             overflow: hidden;
-            position: absolute;
+            position: relative;
             width: 100%;
             transform: translateY(rem(-600));
         }
@@ -44,15 +44,16 @@
             }
 
             @include mobile {
-                width: 100%;
+                left: 10%;
+                width: 90%;
+                height: rem(160);
                 transform: translateY(rem(-210));
-                left: 0;
             }
         }
 
         &-clouds {
             position: absolute;
-            transform: translate(fluid(765, 150), rem(-610));
+            transform: translate(fluid(765, 150), rem(-605));
             z-index: 10;
         
             @include responsive-offset(1600px, 1000, 20px, 10, 10);
@@ -79,7 +80,9 @@
             }
 
             @include mobile {
-                transform: translate(rem(150), rem(-400));
+                position: absolute;
+                top: rem(860);
+                left: rem(-20);
             }
         }
 
@@ -96,7 +99,9 @@
             @include responsive-offset(1600px, 1000, 20px, 10, 10);
 
             @include mobile {
-                transform: translate(rem(150), rem(-400));
+                position: absolute;
+                top: rem(860);
+                left: fluid(0, -40)
             }
         }
 
@@ -111,13 +116,13 @@
             border-radius: 50%;
 
             transform: rotate(0deg);
-            transition: transform 2s ease-in-out;
+            transition: transform 2s ease-in-out;    
 
             @include responsive-offset(1600px, 1000, 20px, -400, 10);
 
             @include mobile {
                 top: rem(250);
-                left: rem(-1025);
+                left: fluid(-410, -1065);
             }
         }
 
@@ -152,7 +157,6 @@
 
             transform: translate(rem(50), rem(-200));
             border-radius: 50%;
-            z-index: 10;
         }
 
         &-sun2-bg {
@@ -185,4 +189,14 @@
             border-radius: 50%;
         }
     }
+}
+
+.fade-img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }

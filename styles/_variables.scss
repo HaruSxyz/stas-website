@@ -25,6 +25,7 @@
     --font-family-accent: 'Rubik', 'sans-serif'; // sans-serif necessarily
 
     --container-width: #{rem(1600)}; // 1600 - taken from desktop. // #{} is necessarily to execute the function
+    --container-width-big: #{rem(1980)};
     --container-padding-x: #{rem(16)}; // 16 - taken from mobile. padding
 
     // change values ​​equally

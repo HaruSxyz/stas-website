@@ -69,3 +69,26 @@ $mobile-s: 480.98;
         }
     }
 }
+
+@mixin responsive-offset($start-width, $count, $step-width, $start-value, $step-value) {
+
+    // Calculate the value for resolution 1980px and lower
+    @media (max-width: 1980px) {
+        @for $i from 0 through $count {
+            $width: $start-width + $i * $step-width;
+            $offset: $start-value + $i * $step-value;
+
+            @media (min-width: $width) {
+                left: rem($offset);
+            }
+        }
+    }
+
+    // Calculate the final value for resolution 1980px and higher
+    $final-index: floor((1980 - $start-width) / $step-width);
+    $final-offset: $start-value + $final-index * $step-value;
+
+    @media (min-width: 1980px) {
+        left: rem($final-offset);
+    }
+}

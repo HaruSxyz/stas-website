@@ -68,14 +68,3 @@
         linear-gradient(var(--color-dark-10), var(--color-dark-10)) padding-box,
         linear-gradient($angle, var(--color-dark-15) 50%, var(--color-accent) 120%) border-box;
 }
-
-@mixin responsive-offset($start-width, $count, $step-width, $start-value, $step-value) {
-    @for $i from 0 through $count {
-        $width: $start-width + $i * $step-width;
-        $offset: $start-value + $i * $step-value;
-
-        @media (width > $width) {
-            left: rem($offset);
-        }
-    }
-}

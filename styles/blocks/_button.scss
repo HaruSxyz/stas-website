@@ -10,7 +10,7 @@
     background-color: var(--color-dark);
     border: var(--border);
     border-radius: rem(12);
-    transition: background-color 2s ease, color 1.5s ease, border 1.5s ease;
+    // transition: background-color 2s ease, color 1.5s ease, border 1.5s ease;
 
     @include laptop {
         padding: rem(14) rem(20);
