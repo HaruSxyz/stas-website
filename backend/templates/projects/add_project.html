@@ -1,0 +1,25 @@
+<h1>Add a project</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Project name</label>
+    {{ form.title }}
+
+    <label>Description</label>
+    {{ form.description }}
+
+    <label>Project image</label>
+    {{ form.image }}
+
+    <label>Tools (comma separated)</label>
+    {{ form.tools }}
+
+    <label>Category</label>
+    {{ form.category }}
+
+    <label>Password</label>
+    {{ form.password }}
+
+    <button type="submit">Publish</button>
+</form>
+<a href="{% url 'project_list' %}">Back to main page</a>

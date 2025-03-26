@@ -1,0 +1,26 @@
+{% load static %}
+{% for project in projects %}
+<div class="projects__content-item" data-category="{{ project.category }}">
+    <div class="projects__content-image">
+        {% if project.image %}
+        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        {% else %}
+        <img src="{% static 'media/projects_images/default_project_image.png' %}" alt="{{ project.title }}">
+        {% endif %}
+        <div class="projects__content-overlay">
+            <div class="projects__content-overlay-inner">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <div class="projects__content-button">
+                    <a class="projects__content-button-link" href="{% url 'project_detail' project.pk %}">
+                        <span class="icon icon--yellow-arrow">View Details</span>
+                    </a>
+                    <!-- <a class="projects__content-button-link" href="#">
+                        <span class="icon icon--yellow-arrow">Download</span>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+
+<body>
+    <div class="project-details">
+        <h1>{{ project.title }}</h1>
+        {% if project.image %}
+        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        {% else %}
+        <img src="{% static 'media/projects_images/default_project_image.png' %}" alt="Default Image">
+        {% endif %}
+        <p>{{ project.description }}</p>
+        <p><strong>Tools:</strong> {{ project.tools }}</p>
+        <a href="{% url 'project_list' %}" class="button">Back to Projects</a>
+    </div>
+</body>
+
+</html>

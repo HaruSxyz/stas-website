@@ -7,9 +7,9 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HaruSxyz | Home</title>
-    <link rel="stylesheet" href="./styles/main.css" />
-    <script src="./scripts/main.js" type="module"></script>
-    <!-- <script src="./scripts/ThemeSwitcher.js" type="module"></script> -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <script type="module" src="{% static 'scripts/main.js' %}"></script>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <div class="header__body-inner container">
                 <!-- logo -->
                 <a class="header__logo logo" href="/" aria-label="Home" title="Home">
-                    <img class="logo__image" src="./images/logo.svg" alt="" width="179" height="50" />
+                    <img class="logo__image" src="{% static 'media/images/logo.svg' %}" alt="" width="179" height="50" />
                 </a>
                 <!-- menu -->
                 <div class="header__overlay" data-js-header-overlay>
@@ -73,27 +73,27 @@
                     <div class="hero__scene-inner">
                         <div class="hero__scene-orbit">
                             <div class="hero__scene-item">
-                                <img src="./images/hero_img/sun_bg.webp" alt="" class="hero__scene-sun-bg">
-                                <img src="./images/hero_img/sun.webp" alt="" class="hero__scene-sun">
-                                <img src="./images/hero_img/sun_bg.webp" alt="" class="hero__scene-sun2-bg">
-                                <img src="./images/hero_img/sun.webp" alt="" class="hero__scene-sun2">
+                                <img src="{% static 'media/images/hero_img/sun_bg.webp' %}" alt="" class="hero__scene-sun-bg">
+                                <img src="{% static 'media/images/hero_img/sun.webp' %}" alt="" class="hero__scene-sun">
+                                <img src="{% static 'media/images/hero_img/sun_bg.webp' %}" alt="" class="hero__scene-sun2-bg">
+                                <img src="{% static 'media/images/hero_img/sun.webp' %}" alt="" class="hero__scene-sun2">
                             </div>    
                             <div class="hero__scene-item">
-                                <img src="./images/hero_img/moon_bg.webp" alt="" class="hero__scene-moon-bg">
-                                <img src="./images/hero_img/moon.webp" alt="" class="hero__scene-moon">
-                                <img src="./images/hero_img/moon_bg.webp" alt="" class="hero__scene-moon2-bg">
-                                <img src="./images/hero_img/moon.webp" alt="" class="hero__scene-moon2">
+                                <img src="{% static 'media/images/hero_img/moon_bg.webp' %}" alt="" class="hero__scene-moon-bg">
+                                <img src="{% static 'media/images/hero_img/moon.webp' %}" alt="" class="hero__scene-moon">
+                                <img src="{% static 'media/images/hero_img/moon_bg.webp' %}" alt="" class="hero__scene-moon2-bg">
+                                <img src="{% static 'media/images/hero_img/moon.webp' %}" alt="" class="hero__scene-moon2">
                             </div>
                         </div>
                     </div>
                     <div class="hero__scene-clouds">
-                        <img src="./images/hero_img/cloud1.webp" alt="" class="hero__scene-clouds-cloud1">
-                        <img src="./images/hero_img/cloud2.webp" alt="" class="hero__scene-clouds-cloud2">
-                        <img src="./images/hero_img/cloud3.webp" alt="" class="hero__scene-clouds-cloud3">
-                        <img src="./images/hero_img/cloud4.webp" alt="" class="hero__scene-clouds-cloud4">
-                        <img src="./images/hero_img/cloud5.webp" alt="" class="hero__scene-clouds-cloud5">
+                        <img src="{% static 'media/images/hero_img/cloud1.webp' %}" alt="" class="hero__scene-clouds-cloud1">
+                        <img src="{% static 'media/images/hero_img/cloud2.webp' %}" alt="" class="hero__scene-clouds-cloud2">
+                        <img src="{% static 'media/images/hero_img/cloud3.webp' %}" alt="" class="hero__scene-clouds-cloud3">
+                        <img src="{% static 'media/images/hero_img/cloud4.webp' %}" alt="" class="hero__scene-clouds-cloud4">
+                        <img src="{% static 'media/images/hero_img/cloud5.webp' %}" alt="" class="hero__scene-clouds-cloud5">
                     </div>
-                    <img src="./images/hero_img/mountain.webp" alt="" class="hero__scene-mountain">
+                    <img src="{% static 'media/images/hero_img/mountain.webp' %}" alt="" class="hero__scene-mountain">
                     <div class="hero__scene-horizont"></div>
                     <button class="hero__scene-button"></button>
                 </div>
@@ -308,8 +308,8 @@
                     </div>
                 </div>
             </section>
-            <!-- thrid section -->
-            <section class="projects" id="projects" data-js-section>
+            <!-- Thrid section -->
+            <section class="projects" id="projects">
                 <div class="projects__inner container">
                     <div class="projects__title">
                         <h2>My Projects</h2>
@@ -332,67 +332,9 @@
                             </ul>
                         </nav>
                     </div>
+            
                     <div class="projects__content">
-                        <!-- Project 1 -->
-                        <div class="projects__content-item" data-category="game">
-                            <div class="projects__content-image">
-                                <img src="/api/placeholder/600/400" alt="Guts & Gunpowder">
-                                <div class="projects__content-overlay">
-                                    <div class="projects__content-overlay-inner">
-                                        <h3>Guts & Gunpowder</h3>
-                                        <p>A Doom like game built with Python.</p>
-                                        <div class="projects__content-button">
-                                            <a class="projects__content-button-link" href="/">
-                                                <span class="icon icon--yellow-arrow">View Details</span>
-                                            </a>
-                                            <a class="projects__content-button-link" href="/">
-                                                <span class="icon icon--yellow-arrow">Download</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project 2 -->
-                        <div class="projects__content-item" data-category="app">
-                            <div class="projects__content-image">
-                                <img src="/api/placeholder/600/400" alt="Dither Man">
-                                <div class="projects__content-overlay">
-                                    <div class="projects__content-overlay-inner">
-                                        <h3>Dither Man</h3>
-                                        <p>A image dithering application built with Python.</p>
-                                        <div class="projects__content-button">
-                                            <a class="projects__content-button-link" href="/">
-                                                <span class="icon icon--yellow-arrow">View Details</span>
-                                            </a>
-                                            <a class="projects__content-button-link" href="/">
-                                                <span class="icon icon--yellow-arrow">Download</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                        <!-- Project 3 -->
-                        <div class="projects__content-item" data-category="coming">
-                            <div class="projects__content-image">
-                                <img src="/api/placeholder/600/400" alt="Coming Soon">
-                                <div class="projects__content-overlay">
-                                    <div class="projects__content-overlay-inner">
-                                        <h3>Coming Soon</h3>
-                                        <p>Coming Soon Coming Soon Coming Soon Coming Soon.</p>
-                                        <div class="projects__content-button">
-                                            <a class="projects__content-button-link" href="/">
-                                                <span class="icon icon--yellow-arrow">View Details</span>
-                                            </a>
-                                            <a class="projects__content-button-link" href="/">
-                                                <span class="icon icon--yellow-arrow">Download</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% include 'projects/projects_list.html' %}
                     </div>
                     <div class="projects__more">
                         <a class="project__more-button button button--accent" href="#">View All Projects</a>
