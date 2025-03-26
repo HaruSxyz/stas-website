@@ -19,7 +19,6 @@ python manage.py makemigrations
 python manage.py migrate
 
 # Setting up SECRET_KEY
-```bash
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
 ▸ Enter this in your .env: SECRET_KEY=...
